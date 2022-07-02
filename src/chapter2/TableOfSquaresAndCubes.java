@@ -17,11 +17,17 @@ public class TableOfSquaresAndCubes {
         int number10 = 10;
 
         System.out.printf("%s%10s%10s%n" , "Number" , "Square" , "Cubes");
-        System.out.printf("%d%10d%10d%n" , number , number * number , number * number *number);
-        System.out.printf("%d%10d%10d%n" , number1 , number1 * number1 , number1 * number1 *number1);
-        System.out.printf("%d%10d%10d%n" , number2 , number2 * number2 , number2 * number2 *number2);
-        System.out.printf("%d%10d%10d%n" , number3 , number3 * number3 , number3 * number3 *number3);
-
+        System.out.printf("%d%13d%11d%n" , number , number * number , number * number * number);
+        System.out.printf("%d%13d%11d%n" , number1 , number1 * number1 , number1 * number1 * number1);
+        System.out.printf("%d%13d%11d%n" , number2 , number2 * number2 , number2 * number2 * number2);
+        System.out.printf("%d%13d%11d%n" , number3 , number3 * number3 , number3 * number3 * number3);
+        System.out.printf("%d%13d%11d%n" , number4 , number4 * number4 , number4 * number4 * number4);
+        System.out.printf("%d%13d%11d%n" , number5 , number5 * number5 , number5 * number5 * number5);
+        System.out.printf("%d%13d%11d%n" , number6 , number6 * number6 , number6 * number6 * number6);
+        System.out.printf("%d%13d%11d%n" , number7 , number7 * number7 , number7 * number7 * number7);
+        System.out.printf("%d%13d%11d%n" , number8 , number8 * number8 , number8 * number8 * number8);
+        System.out.printf("%d%13d%11d%n" , number9 , number9 * number9 , number9 * number9 * number9);
+        System.out.printf("%d%13d%11d%n" , number10 , number10 * number10 , number10 * number10 * number10);
 
     }
 }
