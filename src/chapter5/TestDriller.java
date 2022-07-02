@@ -4,6 +4,7 @@ public class TestDriller {
 
     public int calculatePrice(int quantityOfBooksBought) {
         int price;
+
         if(quantityOfBooksBought >= 1 && quantityOfBooksBought <= 4){
             price = quantityOfBooksBought * 2000;
         }
