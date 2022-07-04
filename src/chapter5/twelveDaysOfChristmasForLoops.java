@@ -8,18 +8,18 @@ public class twelveDaysOfChristmasForLoops {
 
             System.out.println("Twelve Days of Christmas Songs");
 
-            int userDay = 0;
+            int songDay;
             String days = " ";
             String message;
 
             Scanner input = new Scanner(System.in);
 
                 System.out.println("Enter a day from 1 - 12 to print songs verses");
-                userDay = input.nextInt();
+                songDay = input.nextInt();
 
-            for(userDay = 1 ; userDay <= 12 ; userDay++) {
+            for(songDay = 1 ; songDay <= 12 ; songDay++) {
 
-                    switch (userDay) {
+                    switch (songDay) {
                         case 12:
                             days = "twelfth";
                             break;
@@ -59,7 +59,7 @@ public class twelveDaysOfChristmasForLoops {
                     }
                     System.out.printf("On the %s day, of christmas, my true love sent to me %n", days);
 
-                    switch (userDay) {
+                    switch (songDay) {
                         case 12:
                             message = "Twelve drummers drumming";
                             System.out.println(message);

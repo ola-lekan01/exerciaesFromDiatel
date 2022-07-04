@@ -7,20 +7,20 @@ public class TwelveDaysOfChristmas {
 
         System.out.println("Twelve Days of Christmas Songs");
 
-        int userDay = 0;
+        int songDay = 0;
         String days = " ";
         String message;
 
         Scanner input = new Scanner(System.in);
 
-        while (userDay != -1) {
+        while (songDay != -1) {
 
             System.out.println("Enter a day from 1 - 12 to print the song. Press - 1 to quit");
-            userDay = input.nextInt();
+            songDay = input.nextInt();
 
-            if (userDay > 0 && userDay <= 12) {
+            if (songDay > 0 && songDay <= 12) {
 
-                switch (userDay) {
+                switch (songDay) {
                     case 12:
                         days = "twelfth";
                         break;
@@ -60,7 +60,7 @@ public class TwelveDaysOfChristmas {
                 }
                 System.out.printf("On the %s day, of christmas, my true love sent to me %n", days);
 
-                switch (userDay) {
+                switch (songDay) {
                     case 12:
                         message = "Twelve drummers drumming";
                         System.out.println(message);
