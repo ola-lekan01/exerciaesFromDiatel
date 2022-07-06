@@ -1,5 +1,8 @@
 package chapter3;
 
+import java.util.Calendar;
+import java.util.spi.CalendarDataProvider;
+
 public class HealthProfile {
 
 // Declaration of Attributes
@@ -121,11 +124,11 @@ public class HealthProfile {
     public String heartRate() {
         return "Your Maximum Heart Rate is" + (220 - age()); }
 
-//To calculate Body Mass Index
+//To calculate Body Mass IndexCa
 
     public String bodyMassIndex() {
         return "Your Body Mass index" + ((weight * 0.45359237) / ((height * 0.0254) * (height * 0.0254)));
-
+        
     }
 
 }
