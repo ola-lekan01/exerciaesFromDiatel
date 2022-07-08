@@ -3,7 +3,7 @@ package chapter5;
 import java.util.Scanner;
 
 public class NokiaPhone {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         int menu;
 
         Scanner input = new Scanner(System.in);
