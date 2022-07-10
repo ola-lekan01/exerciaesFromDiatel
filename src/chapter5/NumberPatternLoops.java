@@ -63,7 +63,7 @@ public class NumberPatternLoops {
         System.out.printf("%s%n%n", "Inverted Right Angle Triangle with the Hypotenuse to rhe left");
 
         for (int rows = 1; rows <= base; rows++) {
-            for (int space = 0; space < (base- rows); space++) {
+            for (int space = 0; space < (base - rows); space++) {
                 System.out.print(" ");
             }
             for (int columns = rows; columns >= 1; columns--) {

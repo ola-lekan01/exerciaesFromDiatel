@@ -16,7 +16,6 @@ public class LoopsPattern {
             }
             System.out.println();
 
-
         }
     }
 }
