@@ -23,6 +23,7 @@ public class EnforcingPrivacyWithCryptography {
         double encrypt3 = (decrypt + 7) / 10;
         double encrypt4 = (decrypt + 7) / 10;
 
+
         System.out.printf("%f%f%f%f" , encrypt , encrypt2 , encrypt3 , encrypt4);
 
     }
