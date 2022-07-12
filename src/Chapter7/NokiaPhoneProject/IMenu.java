@@ -1,4 +1,4 @@
-package NokiaPhoneProject;
+package Chapter7.NokiaPhoneProject;
 
 import java.util.Scanner;
 
