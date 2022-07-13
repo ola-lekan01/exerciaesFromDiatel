@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class ComputerAssistedInstruction {
     public static void main(String[] args) {
+
         chooseGameType();
     }
     private static final Scanner input = new Scanner(System.in);
