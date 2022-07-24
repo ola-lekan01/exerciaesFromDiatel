@@ -1,14 +1,16 @@
 package chapter5;
 
+/***
+ * @@author Lekan
+ */
 public class MultiplicationTable {
     public static void main(String[] args) {
-        int number = 1;
-        int number2 = 1;
 
-        for(number2 = 1 ; number2 <= 12 ; number2++){
-
-            int result = number * number2;
-            System.out.printf("%d *  %d = %d", number, number2, result);
+        for(int count = 1 ; count <= 10 ; count++) {
+            for (int counter = 1; counter <= 10 ; counter++){
+                int result = count * counter;
+                System.out.printf("%d * %d = %d%n" , count , counter, result);
+            }
             System.out.println();
         }
 
