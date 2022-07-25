@@ -53,4 +53,9 @@ public class NightClassTest {
     public void test_ToFindTheNextAlphabet(){
         assertEquals('h' , nightClass.getChar('g'));
     }
+    @Test
+    @DisplayName("Test guess Continent Name")
+    public void test_ToGuessContinentName(){
+
+    }
 }
