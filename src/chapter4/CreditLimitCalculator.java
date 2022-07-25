@@ -9,6 +9,7 @@ public class CreditLimitCalculator {
 
         Scanner input = new Scanner(System.in);
 
+
         System.out.println("Enter your Account Number: ");
         int account = input.nextInt();
 
