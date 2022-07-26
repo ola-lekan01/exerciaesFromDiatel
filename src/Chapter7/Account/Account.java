@@ -6,6 +6,14 @@ public class Account {
     private String pin;
     private String accountName;
     private String accountNumber;
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
     public Account(String accountNumber, String accountName, String pin){
         this.accountName = accountName;
         this.accountNumber = accountNumber;
@@ -32,5 +40,9 @@ public class Account {
 
     private boolean isCorrect(String pin){
         return (pin.equals(this.pin));
+    }
+
+    public String getName() {
+        return accountName;
     }
 }
