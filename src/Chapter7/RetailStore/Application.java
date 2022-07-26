@@ -134,18 +134,6 @@ public class Application {
         return discountPrice;
     }
 
-//    public static void makePayments() {
-//        System.out.println("How much did the customer Pay: ");
-//       payment = input.nextInt();
-//        if (payment >= finalBill()) {
-//            generateReceipts();
-//        }
-//        else {
-//            System.out.println("Please Make a Valid payment Equal or More than the amount Charged");
-//            makePayments();
-//        }
-//    }
-
     public static double balancePayment(){
         double balance;
         balance = payment - finalBill();

@@ -1,4 +1,4 @@
-package PhoneBoook;
+package Chapter7.PhoneBoook;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,6 +18,7 @@ public class Application {
         name();
         address();
         telephone();
+        email();
         saveContact();
     }
 
@@ -25,6 +26,7 @@ public class Application {
         name();
         address();
         telephone();
+        email();
         saveContact();
         addNewContact();
     }
@@ -50,38 +52,28 @@ public class Application {
     public static void telephone() {
         System.out.println("Enter Phone Number: ");
         tel.add(getUserInput());
-
-        System.out.println("Press Yes to add a new Phone Number or No to Proceed: ");
-        switch (getUserInput()) {
-            case "Yes":
-                telephone();
-                break;
-            default:
-                email();
-        }
     }
     public static void saveContact(){
         System.out.println("Press Yes to save contact to Memory");
 
-        switch (getUserInput()){
-            case "Yes":
-            System.out.println("Contact saved Successfully");
-            addNewContact();
-            break;
-            default:
+        switch (getUserInput()) {
+            case "Yes" -> {
+                System.out.println("Contact saved Successfully");
+                addNewContact();
+            }
+            default -> {
                 System.out.println("Contact Not yet Saved, Please try again");
                 saveContact();
+            }
         }
     }
 
 
     public static void addNewContact(){
         System.out.println("Press Yes to Add a New Contact to phone Memory or No to Proceed: ");
-        switch (getUserInput()){
-            case "Yes":
-                addNew();
-            default:
-                printContact();
+        switch (getUserInput()) {
+            case "Yes" -> addNew();
+            default -> printContact();
         }
     }
 
