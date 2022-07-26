@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AccountTest {
     Account bankeAccount;
     Account jamesAccount;
-
+    
     @BeforeEach
     void setUp(){
         bankeAccount = new Account("2" , "Banke" , "1234");
@@ -84,14 +84,15 @@ public class AccountTest {
     public void test_IfPinIsRightWithdrawAmountShouldWork(){
         assertEquals(0, bankeAccount.getBalance("1234"));
         bankeAccount.deposit(200);
-        bankeAccount.withdraw(200, "1234");
-        assertEquals(0 , bankeAccount.getBalance("1234"));
+        bankeAccount.withdraw(-200, "1234");
+        assertEquals(200 , bankeAccount.getBalance("1234"));
     }
+
     @Test
     public void test_IfPinIsWrongWithdrawAmountShouldNotWork(){
         assertEquals(0, bankeAccount.getBalance("1234"));
         bankeAccount.deposit(200);
-        bankeAccount.withdraw(200, "123465");
+        bankeAccount.withdraw(-200, "123465");
         assertEquals(200 , bankeAccount.getBalance("1234"));
     }
 }

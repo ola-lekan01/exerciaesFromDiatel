@@ -1,5 +1,7 @@
 package Chapter7.Account;
 public class Account {
+
+    //given: Setting up a precondition before carrying out a test
     private int balance;
     private String pin;
     private String accountName;
@@ -9,33 +11,26 @@ public class Account {
         this.accountNumber = accountNumber;
         this.pin = pin;
     }
-    public String getAccountName() {
-        return accountName;
-    }
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
+
     public int getBalance(String pin) {
-        if(pin.equals(this.pin)) return balance;
+        if(isCorrect(pin)) return balance;
         return 0;
     }
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-    public void deposit(int deposit) {
-        if (deposit > 0) {
-            this.balance = balance + deposit;
+
+    public void deposit(int depositAmount) {
+        boolean isValid = depositAmount > 0;
+        if (isValid) {
+            this.balance = balance + depositAmount;
         }
     }
+
     public void withdraw(int withdrawalAmount, String pin) {
-        if(withdrawalAmount <= this.balance && pin.equals(this.pin)){
+        if(withdrawalAmount > 0 && withdrawalAmount <= this.balance && isCorrect(pin)){
             this.balance = getBalance(pin) - withdrawalAmount;
         }
+    }
+
+    private boolean isCorrect(String pin){
+        return (pin.equals(this.pin));
     }
 }
