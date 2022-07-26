@@ -51,48 +51,20 @@ public class NightClass {
         return newWord;
     }
 
-//    public static String guessContinent(String countryName) {
-//        countryName1 = countryName;
-//        continentName = " ";
-//
-//
-////            String[] asia = {"China", "Egypt", "North-Korea", "Iran", "Japan"};
-////            String [] africa = {"Nigeria", "Ghana", "Togo", "South_Africa", "Angola"};
-////            String [] south_America = {"Ecuador", "Brazil", "Argentina", "Peru" , "Paraguay"};
-////            String[] europe = {"Ireland", "Iceland", "Poland", "Portugal", "United Kingdom"};
-////            String[] north_America = {"Panama", "Honduras", "Haiti", "Cuba", "USA"};
-////            String[] australia = {"Australia", "Marshall Islands", "New Zealand" , "Samoa" , "Paula"};
-//
-//
-//
-////            for (int index = 0; index < africa.values().length; index++) {
-////                if (Objects.equals(countryName, africa[index])) {
-////                    continentName = "Africa";
-////                }
-////                if (Objects.equals(countryName, south_America[index])) {
-////                    continentName = "South America";
-////                }
-////                if (Objects.equals(countryName, asia[index])) {
-////                    continentName = "Asia";
-////                }
-////                if (Objects.equals(countryName, europe[index])) {
-////                    continentName = "Europe";
-////                }
-////                if (Objects.equals(countryName, north_America[index])) {
-////                    continentName = "North America";
-////                } if (Objects.equals(countryName, australia[index])) {
-////                    continentName = "Australia";
-////                }
-////        }
-////
-////        return continentName;
-////            if(Objects.isNull(continentName));
-//    }
-
     public static class continentException extends Exception{
         public continentException() {
             continentName = countryName1 + "is not a country Name";
         }
     }
 
+    public static int returnDifferences(int number1) {
+        int number2 = 0;
+        if(number1 == 1) {
+            number2 = number1--;
+        }
+        if(number1 == 0) {
+            number2 = number1 + 1;
+        }
+        return number2;
+    }
 }

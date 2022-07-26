@@ -58,4 +58,14 @@ public class NightClassTest {
     public void test_ToGuessContinentName(){
 
     }
+    @Test
+    public void test_ThatWeCanDecrementNumber(){
+        assertEquals(0, NightClass.returnDifferences(1));
+    }
+
+    @Test
+    public void test_ThatWeCanIncrementNumber(){
+        assertEquals(1, NightClass.returnDifferences(0));
+    }
+
 }
