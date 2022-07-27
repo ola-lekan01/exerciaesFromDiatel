@@ -27,7 +27,7 @@ public class BankTest {
     @Test
     public void testThatWeCanFindAccount(){
         myBank.createAccountFor("Banke" , "1234");
-        Account account= myBank.findAccount("1");
+        Account account = myBank.findAccount("1");
         assertEquals("Banke" ,  account.getName());
     }
 

@@ -8,7 +8,6 @@ public class Bank {
         Account account = new Account((numberOfCustomers+1)+"" , accountName, pin);
         accounts[numberOfCustomers] = account;
         numberOfCustomers++;
-
     }
     public int getNumberOfCustomer() {
         return numberOfCustomers;
@@ -21,7 +20,6 @@ public class Bank {
         }
         return null;
     }
-
 
     public void deposit(int deposit, String accountNumber) {
         Account account = findAccount(accountNumber);
