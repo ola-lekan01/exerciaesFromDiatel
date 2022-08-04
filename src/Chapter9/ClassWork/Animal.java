@@ -40,7 +40,7 @@ public class Animal {
     }
 
     public String feed(){
-        return "I am feeding";
+        return "I am feeding to grow";
     }
 
     @Override

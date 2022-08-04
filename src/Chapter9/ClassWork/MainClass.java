@@ -7,6 +7,7 @@ public class MainClass {
         Herbivore dog = new Herbivore("Chuwawa" , "6 Months" , "Land Animal");
         System.out.println("My name is " + dog.getName());
         System.out.println("I am " + dog.getAge() + " Old");
+        System.out.println(dog.feed());
         System.out.println("I am a " + dog.animalType());
         System.out.println("And " + dog.move());
 
@@ -24,6 +25,7 @@ public class MainClass {
         Aquatic fish = new Aquatic("Shark" , "2 Years" , "WaterAnimal");
         System.out.println("My name is " + fish.getName());
         System.out.println("I am " + fish.getAge() + " Old");
+        System.out.println(fish.feed());
         System.out.println("I am a " + fish.animalType());
         System.out.println("And " + fish.move());
 

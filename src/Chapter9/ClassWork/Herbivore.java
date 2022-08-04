@@ -5,7 +5,7 @@ public class Herbivore extends Animal{
         super(name, age, type);
     }
     public String move(){
-        return "I am Moving on the Land";
+        return "I am Moving on the Land as Herbivores";
     }
 
     @Override

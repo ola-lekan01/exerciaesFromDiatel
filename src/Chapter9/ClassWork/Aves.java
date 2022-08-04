@@ -6,7 +6,7 @@ public class Aves extends Animal{
     }
 
     public String move(){
-        return "I am Flying in the air";
+        return "I am Flying in the air as Aves";
     }
 
     @Override

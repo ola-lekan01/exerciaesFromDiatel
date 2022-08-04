@@ -6,7 +6,7 @@ public class Aquatic extends Animal{
     }
 
     public String move(){
-        return "I am Swimming in the water";
+        return "I am Swimming in the water as Aquatics";
     }
 
     @Override
