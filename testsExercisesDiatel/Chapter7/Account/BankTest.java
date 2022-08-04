@@ -18,10 +18,15 @@ public class BankTest {
     }
 
     @Test
-    public void test_AccountCanBeCreated(){
-     myBank.createAccountFor("Banke" , "1234");
-     myBank.createAccountFor("James" , "1234");
-     assertEquals(2, myBank.getNumberOfCustomer());
+    public void test_ThatFourAccountCanBeCreated(){
+     myBank.createAccountFor("Banke" , "1454");
+        assertEquals(1, myBank.getNumberOfCustomer());
+     myBank.createAccountFor("James" , "1674");
+        assertEquals(2, myBank.getNumberOfCustomer());
+     myBank.createAccountFor("Emmanuel OlaIfa" , "1445");
+        assertEquals(3, myBank.getNumberOfCustomer());
+     myBank.createAccountFor("Lekan Sam" , "1234");
+     assertEquals(4, myBank.getNumberOfCustomer());
     }
 
     @Test
