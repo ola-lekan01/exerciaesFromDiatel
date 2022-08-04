@@ -4,25 +4,25 @@ import static Chapter7.StudentGrade.StudentGrade.doubleLine;
 
 public class MainClass {
     public static void main(String[] args) {
-        Herbivore dog = new Herbivore("Chuwawa" , "6 Months" , "Land Animal");
-        System.out.println("My name is " + dog.getName());
-        System.out.println("I am " + dog.getAge() + " Old");
-        System.out.println(dog.feed());
-        System.out.println("I am a " + dog.animalType());
-        System.out.println("And " + dog.move());
+        Goat goat = new Goat("Chuwawa" , "6 Months" , "Land Animal");
+        System.out.println("My name is " + goat.getName());
+        System.out.println("I am " + goat.getAge() + " Old");
+        System.out.println(goat.feed());
+        System.out.println("I am a " + goat.animalType());
+        System.out.println("And " + goat.move());
 
         doubleLine();
 
-        Aves bird = new Aves("Eagle", "15 Years" , "Flying Animal");
-        System.out.println("My name is " + bird.getName());
-        System.out.println("I am " + bird.getAge() + " Old");
-        System.out.println("I am a " + bird.animalType());
-        System.out.println(bird.feed());
-        System.out.println("And " + bird.move());
+        Chicken chicken = new Chicken("Eagle", "15 Years" , "Flying Animal");
+        System.out.println("My name is " + chicken.getName());
+        System.out.println("I am " + chicken.getAge() + " Old");
+        System.out.println("I am a " + chicken.animalType());
+        System.out.println(chicken.feed());
+        System.out.println("And " + chicken.move());
 
         doubleLine();
 
-        Aquatic fish = new Aquatic("Shark" , "2 Years" , "WaterAnimal");
+        Fish fish = new Fish("Shark" , "2 Years" , "WaterAnimal");
         System.out.println("My name is " + fish.getName());
         System.out.println("I am " + fish.getAge() + " Old");
         System.out.println(fish.feed());
@@ -32,11 +32,13 @@ public class MainClass {
         doubleLine();
 
         //
+        System.out.println(chicken);
+        doubleLine();
         System.out.println(fish);
         doubleLine();
-        System.out.println(dog);
-        doubleLine();
-        System.out.println(bird);
+        System.out.println(goat);
+
+
     }
 
 }

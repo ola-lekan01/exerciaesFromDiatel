@@ -43,9 +43,9 @@ public class Animal {
         return "I am feeding to grow";
     }
 
-    @Override
-    public String toString(){
-        return String.format("Name: %s Age: %s Animal Type: %s" ,getName(), getAge(), getType());
-    }
+//    @Override
+//    public String toString(){
+//        return String.format("Name: %s Age: %s Animal Type: %s" ,getName(), getAge(), getType());
+//    }
 
 }
