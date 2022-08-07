@@ -1,5 +1,7 @@
 package Chapter7.AssessmentProject.StudentGrade;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Scanner;
 public class StudentGrade {
     public static void main(String[] args) {
@@ -15,6 +17,7 @@ public class StudentGrade {
     static int numberOfSubjects;
     static int [][] studentGrades;
     static int [] totals;
+    static int[] positions;
     static double [] averages;
 
     public static void setUp(){
@@ -79,9 +82,16 @@ public class StudentGrade {
             System.out.println(e.getMessage());
         }
     }
+    public static void position(){
+        positions = new int[numberOfStudents];
+        Arrays.sort(totals);
+        for(rows = 0 ; rows < totals.length; rows++){
+            positions[rows] = rows;
+        }
+    }
 
     public static void processGrades(){
-
+        positions = new int[numberOfStudents];
         totals = new int[numberOfStudents];
         averages = new double[numberOfStudents];
         for (rows = 0 ; rows < studentGrades.length ; rows++){
@@ -93,7 +103,7 @@ public class StudentGrade {
             }
             totals[rows] = total;
             averages[rows] = (double) total / numberOfSubjects;
-            System.out.printf("%20d%10.2f%10d" , totals[rows], averages[rows], rows+1);
+            System.out.printf("%20d%10.2f%10d" , totals[rows], averages[rows], positions[rows]);
             System.out.println();
         }
         doubleLine();
@@ -285,6 +295,7 @@ public class StudentGrade {
         average = total / numberOfStudents;
         return average;
     }
+
 
     public static void classSummary(){
         doubleLine();
