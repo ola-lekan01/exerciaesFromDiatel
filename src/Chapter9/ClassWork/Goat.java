@@ -13,4 +13,10 @@ public class Goat extends Herbivore{
     public String toString(){
         return String.format("Name: %s Age: %s Animal Type: %s" ,getName(), getAge(), getType());
     }
+
+    @Override
+    public String feed(){
+        super.feed();
+        return "I am eating grass to grow";
+    }
 }

@@ -1,6 +1,7 @@
 package Chapter9.ClassWork;
 
 public class Aves extends Animal{
+
     public Aves(String name, String age, String type) {
         super(name, age, type);
     }
