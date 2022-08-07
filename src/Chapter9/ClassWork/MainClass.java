@@ -1,9 +1,12 @@
 package Chapter9.ClassWork;
 
-import static Chapter7.StudentGrade.StudentGrade.doubleLine;
+import static Chapter7.AssessmentProject.StudentGrade.StudentGrade.doubleLine;
 
 public class MainClass {
     public static void main(String[] args) {
+        Animal lion = new Goat("Goat" , "6 years", "Domestic");
+        System.out.println(lion.feed());
+
         Goat goat = new Goat("Chuwawa" , "6 Months" , "Land Animal");
         System.out.println("My name is " + goat.getName());
         System.out.println("I am " + goat.getAge() + " Old");
