@@ -1,4 +1,4 @@
-package Chapter10.ShapeHierarchy;
+package Chapter10.Question10_14;
 
 public class Triangle extends TwoDimensional{
     private final double height;
