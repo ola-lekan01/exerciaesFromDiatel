@@ -1,8 +1,8 @@
-package Chapter10.Employee;
+package Chapter10.Question10_13;
 
 import Chapter8.Date.Date;
 
-public class BasePlusCommissionEmployee extends CommissionEmployee{
+public class BasePlusCommissionEmployee extends CommissionEmployee {
     private double baseSalary;
 
     public BasePlusCommissionEmployee(String fName, String lName, String socialSecurityNumber, Date birthDate, double grossSales, double commissionRate, double baseSalary) {

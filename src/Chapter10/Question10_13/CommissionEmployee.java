@@ -1,8 +1,9 @@
-package Chapter10.Employee;
+package Chapter10.Question10_13;
 
+import Chapter10.Question10_13.Employee;
 import Chapter8.Date.Date;
 
-public class CommissionEmployee extends Employee{
+public class CommissionEmployee extends Employee {
     private double grossSales;
     private double commissionRate;
 

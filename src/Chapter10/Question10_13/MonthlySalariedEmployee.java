@@ -1,9 +1,9 @@
-package Chapter10.Employee;
+package Chapter10.Question10_13;
 
+import Chapter10.Question10_13.Employee;
 import Chapter8.Date.Date;
 
-public class MonthlySalariedEmployee extends Employee{
-
+public class MonthlySalariedEmployee extends Employee {
     private double salary;
 
     public MonthlySalariedEmployee(String firstName, String lastName, String socialSecurityNumber, Date birthDate, double salary){

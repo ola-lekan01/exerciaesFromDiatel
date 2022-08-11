@@ -1,5 +1,7 @@
-package Chapter10.Employee;
+package Chapter10.Question10_13;
 
+import Chapter10.Question10_13.*;
+import Chapter10.Question10_15.PieceWorker;
 import Chapter8.Date.Date;
 
 public class MainSystemModifications {
@@ -11,7 +13,7 @@ public class MainSystemModifications {
         Date lakesDate = new Date(16 ,11, 1992);
         Date hopeDate = new Date(13 ,8, 1995);
 
-        Employee [] employees = new Employee[6];
+        Employee[] employees = new Employee[6];
 
         MonthlySalariedEmployee monthlySalariedEmployeeJohn = new MonthlySalariedEmployee("John" , "JohnNew", "222_32_8448" , johnDate, 25_000);
         MonthlySalariedEmployee monthlySalariedEmployeeBanke = new MonthlySalariedEmployee("Banke" , "Banks", "222_32_8448" , bankeDate, 25_000);
@@ -26,7 +28,6 @@ public class MainSystemModifications {
         employees[3] = hourlyEmployeeLakes;
         employees[4] = commissionEmployeeJames;
         employees[5] = pieceWorkerHope;
-
 
         for(Employee currentEmployee : employees){
             System.out.println("This worker is a " + currentEmployee.getClass().getSimpleName());
