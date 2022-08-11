@@ -1,9 +1,9 @@
-package Chapter10.Employee;
+package Chapter10.Question10_15;
 
+import Chapter10.Question10_13.Employee;
 import Chapter8.Date.Date;
 
 public class PieceWorkerTest {
-
     public static void main(String[] args) throws Exception {
         Date johnDate = new Date(30 ,6, 1994);
         Date bankeDate = new Date(10 ,5, 1980);
@@ -11,7 +11,7 @@ public class PieceWorkerTest {
         Date lakesDate = new Date(16 ,11, 1992);
         Date hopeDate = new Date(13 ,8, 1995);
 
-        Employee [] employees = new Employee[6];
+        Employee[] employees = new Employee[6];
 
 
         PieceWorker pieceWorkerHope = new PieceWorker("Hope", "Great", "335_52_8398",  hopeDate,400, 15);
@@ -32,7 +32,5 @@ public class PieceWorkerTest {
             System.out.println("This worker is a " + currentEmployee.getClass().getSimpleName());
             System.out.println(currentEmployee);
         }
-
     }
-
 }

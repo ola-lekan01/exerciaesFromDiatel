@@ -1,8 +1,9 @@
-package Chapter10.Employee;
+package Chapter10.Question10_15;
 
+import Chapter10.Question10_13.Employee;
 import Chapter8.Date.Date;
 
-public class PieceWorker extends Employee{
+public class PieceWorker extends Employee {
     private final double wagesPerPiece;
     private final double wagesProduced;
 
