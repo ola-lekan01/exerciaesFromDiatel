@@ -33,14 +33,6 @@ public class AccountTest {
     }
 
     @Test
-    @DisplayName("Test That User Cannot deposit a Negative Amount")
-    public void test_ThatUserCannotDepositNegativeAmount(){
-        assertEquals(0, bankeAccount.getBalance("1234"));
-        bankeAccount.deposit(-2500);
-        assertEquals(0 , bankeAccount.getBalance("1234"));
-    }
-
-    @Test
     public void test_ThatUserCannotWithdrawMoreThanYourBalance(){
         //given that your account balance is zero
         //when I deposit 200
@@ -54,20 +46,19 @@ public class AccountTest {
     @Test
     public void test_ThatUserCanDepositAndWithdrawAtTheSameTime(){
         assertEquals(0, bankeAccount.getBalance("1234"));
-        bankeAccount.deposit(2000);
-        assertEquals(2000 , bankeAccount.getBalance("1234"));
+        bankeAccount.deposit(5000);
+        assertEquals(5000 , bankeAccount.getBalance("1234"));
         bankeAccount.withdraw(1000, "1234");
-        assertEquals(1000 , bankeAccount.getBalance("1234"));
+        assertEquals(4000 , bankeAccount.getBalance("1234"));
         bankeAccount.withdraw(2000, "1234");
-        assertEquals(1000 , bankeAccount.getBalance("1234"));
+        assertEquals(2000 , bankeAccount.getBalance("1234"));
     }
 
     @Test
     public void getBalanceWithWrongPin_ReturnZeroTest(){
         assertEquals(0, jamesAccount.getBalance("1234"));
         jamesAccount.deposit(2000);
-        int myBalance = jamesAccount.getBalance("2345");
-        assertEquals(0 , myBalance);
+        assertThrows(InvalidPinException.class, ()-> jamesAccount.getBalance("3264"));
     }
 
     @Test
@@ -81,16 +72,21 @@ public class AccountTest {
     @Test
     public void test_IfPinIsRightWithdrawAmountShouldWork(){
         assertEquals(0, bankeAccount.getBalance("1234"));
-        bankeAccount.deposit(200);
-        bankeAccount.withdraw(-200, "1234");
-        assertEquals(200 , bankeAccount.getBalance("1234"));
+        bankeAccount.deposit(2000);
+        bankeAccount.withdraw(1000, "1234");
+        assertEquals(1000 , bankeAccount.getBalance("1234"));
     }
 
     @Test
-    public void test_IfPinIsWrongWithdrawAmountShouldNotWork(){
+    public void test_IfPinIsWrongWithdrawAmountShouldNotWork() {
         assertEquals(0, bankeAccount.getBalance("1234"));
-        bankeAccount.deposit(200);
-        bankeAccount.withdraw(-200, "123465");
-        assertEquals(200 , bankeAccount.getBalance("1234"));
+        bankeAccount.deposit(2000);
+        assertThrows(InvalidPinException.class, ()-> bankeAccount.withdraw(1000, "123465"));
+    }
+
+    @Test
+    @DisplayName("Test That User Cannot deposit a Negative Amount")
+    public void test_ThatUserCannotDepositNegativeAmountAndThrowsAnException(){
+        assertThrows(InvalidAmountException.class, ()->bankeAccount.deposit(-2500));
     }
 }

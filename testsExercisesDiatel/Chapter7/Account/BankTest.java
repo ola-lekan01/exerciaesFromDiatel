@@ -33,11 +33,17 @@ public class BankTest {
     public void testThatWeCanFindAccount(){
         myBank.createAccountFor("Banke" , "1234");
         Account account = myBank.findAccount("1");
-        assertEquals("Banke" ,  account.getName());
+        assertEquals("Banke", account.getName());
     }
 
     @Test
-    public void test_ThatCustomerCanDeposit(){
+    public void testThatWeCanNotFindAccountThrowsException(){
+        myBank.createAccountFor("Banke" , "1234");
+        assertThrows(NoAccountNameFoundException.class, ()-> myBank.findAccount("2"));
+    }
+
+    @Test
+    public void test_ThatCustomerCanDeposit() {
         myBank.createAccountFor("Banke" , "1234");
         myBank.deposit(2000, "1");
 
@@ -46,7 +52,7 @@ public class BankTest {
     }
 
     @Test
-    public void testThatCustomerCanWithdrawPositiveBalance(){
+    public void testThatCustomerCanWithdrawPositiveBalance() {
         myBank.createAccountFor("Banke" , "1234");
         myBank.deposit(2000, "1");
 
@@ -56,13 +62,29 @@ public class BankTest {
     }
 
     @Test
-    public void testThatCustomerCantWithdrawNegativeAmount(){
+    public void testThatCustomerCantWithdrawNegativeAmount() {
 
         myBank.createAccountFor("Banke" , "1234");
         myBank.deposit(2000, "1");
 
         Account bankeAccount = myBank.findAccount("1");
-        bankeAccount.withdraw(-1500, "1234");
-        assertEquals(2000 , bankeAccount.getBalance("1234"));
+        assertThrows(InvalidAmountException.class, ()-> bankeAccount.withdraw(-1500, "1234"));
+    }
+
+    @Test
+    public void testThatWeCanTransferFundsTest() {
+        myBank.createAccountFor("Tade" , "1234");
+        myBank.createAccountFor("Lakes" , "4321");
+
+        myBank.deposit(10000,"1");
+        Account tadeAccount = myBank.findAccount("1");
+        tadeAccount.getBalance("1234");
+        Account lakesAccount = myBank.findAccount("2");
+
+        assertEquals(10000, tadeAccount.getBalance("1234"));
+        myBank.transfer("1","2",4000,"1234");
+
+        assertEquals(6000, tadeAccount.getBalance("1234"));
+        assertEquals(4000, lakesAccount.getBalance("4321"));
     }
 }

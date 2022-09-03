@@ -8,9 +8,6 @@ public class Account {
     private String accountName;
     private String accountNumber;
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -20,19 +17,19 @@ public class Account {
         this.pin = pin;
     }
     public int getBalance(String pin) {
-        if(isCorrect(pin)) return balance;
-        return 0;
+        if(!isCorrect(pin)) throw new InvalidPinException("Invalid Pin Entered, Please try process again");
+        else return balance;
     }
     public void deposit(int depositAmount) {
         boolean isValid = depositAmount > 0;
-        if (isValid) {
-            this.balance = balance + depositAmount;
-        }
+        if(!isValid) throw new InvalidAmountException("You cannot Deposit a Negative Amount");
+        else this.balance = balance + depositAmount;
     }
     public void withdraw(int withdrawalAmount, String pin) {
-        if(withdrawalAmount > 0 && withdrawalAmount <= this.balance && isCorrect(pin)){
-            this.balance = getBalance(pin) - withdrawalAmount;
-        }
+        boolean isValidWithdrawalAmount = withdrawalAmount > 0 && withdrawalAmount <= this.balance;
+        if (!isValidWithdrawalAmount) throw new InvalidAmountException(String.format("Your current account balance is %d, You cannot withdraw more than your current balance", balance));
+        if(!isCorrect(pin)) throw new InvalidPinException("Invalid Pin Entered, Please try process again");
+        this.balance = getBalance(pin) - withdrawalAmount;
     }
     private boolean isCorrect(String pin){
         return (pin.equals(this.pin));
@@ -40,5 +37,9 @@ public class Account {
 
     public String getName() {
         return accountName;
+    }
+    @Override
+    public String toString() {
+        return String.format("%s ", accountNumber);
     }
 }
