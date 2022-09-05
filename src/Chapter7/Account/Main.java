@@ -5,11 +5,12 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Main {
-    static Scanner sc = new Scanner(System.in);
     static Bank lakesBank = new Bank();
     static String accountName;
     static String accountPin;
     static int amount;
+    static String receiver;
+    static String senders;
 
     public static void main(String[] args) {
         openPage();
@@ -34,6 +35,7 @@ public class Main {
                 case "4" -> bankTransfer();
                 case "5" -> checkBalance();
                 case "6" -> exit(6);
+                default -> openPage();
             }
         } catch (InvalidInputException exception) {
             displayStatus(exception.getMessage());
@@ -41,29 +43,55 @@ public class Main {
         }
     }
     private static void checkBalance() {
-        accountName = input("Enter Account Name: ");
-        String pin = input("Enter you pin to check balance: ");
-        int balance = lakesBank.findAccountName(accountName).getBalance(pin);
-        displayStatus(String.format("Your Balance is %d", balance));
-        backMenu();
+        try{
+            String accountNumber = input("Enter Account Number: ");
+            String pin = input("Enter you pin to check balance: ");
+            int balance = lakesBank.findAccount(accountNumber).getBalance(pin);
+            displayStatus(String.format("Your Balance is %d", balance));
+            backMenu();
+
+        } catch (InvalidPinException | NoAccountNameFoundException exception) {
+            displayStatus(exception.getMessage());
+            checkBalance();
+        }
+
     }
 
     private static void bankTransfer() {
-        String sendersAccountNumber =input("Enter your Account Number: ");
-        String receiverAccountNumber =input("Enter Receiver's Account Number: ");
-        String pin = input("Enter Receiver's Account Number: ");
-        int amount = inputInt("Enter Amount to transfer");
+        try{
+            String sendersAccountNumber =input("Enter your Account Number: ");
+            String receiverAccountNumber =input("Enter Receiver's Account Number: ");
+            String pin = input("Enter Your Transfer Pin: ");
+            amount = inputInt("Enter Amount to transfer");
+            System.out.printf("Initiating transfer of %d to %s", amount, lakesBank.findAccount(receiverAccountNumber).getName());
+            String confirmTransaction = ("""
+                    Confirm Transaction:
+                    1. To Complete Transaction
+                    2. To abort Transaction and go back to main menu
+                    3. To Exit
+                    """);
+            switch (input(confirmTransaction)){
+                case "1" -> lakesBank.transfer(sendersAccountNumber,receiverAccountNumber,amount,pin);
+                default -> openPage();
+                case "3" -> exit(3);
+            }
 
-        lakesBank.transfer(sendersAccountNumber,receiverAccountNumber,amount,pin);
-        int balance = lakesBank.findAccountName(accountName).getBalance(accountPin);
-        displayStatus(String.format("You have Successfully transferred %d to %s your new account balance is %d", amount, receiverAccountNumber, balance));
+            receiver = receiverAccountNumber;
+            senders = sendersAccountNumber;
+
+        } catch (InvalidPinException | InvalidAmountException | NoAccountNameFoundException exception) {
+            displayStatus(exception.getMessage());
+            bankTransfer();
+        }
+        int balance = lakesBank.findAccount(senders).getBalance(accountPin);
+        displayStatus(String.format("You have Successfully transferred %d to %s your new account balance is %d", amount, lakesBank.findAccount(receiver).getName(), balance));
         backMenu();
     }
 
     private static void withdraw() {
         try {
-            lakesBank.withdraw(amount = inputInt("Enter withdrawal Amount: "), input("Enter Account Number: "), input("Enter Password:"));
-        } catch (InvalidPinException exception) {
+            lakesBank.findAccount(input("Enter Account Number: ")).withdraw(amount = inputInt("Enter withdrawal Amount: "), input("Enter Password:"));
+        } catch (InvalidPinException | InvalidAmountException exception) {
             displayStatus(exception.getMessage());
             withdraw();
         }
@@ -75,19 +103,17 @@ public class Main {
     }
 
     private static void mainDeposit() {
-        String accountNumber = input("Enter Your Account Number: ");
-        int amount = inputInt("Enter Amount: ");
-
         try {
+            String accountNumber = input("Enter Your Account Number: ");
+            amount = inputInt("Enter Amount: ");
             lakesBank.deposit(amount, accountNumber);
         }
-        catch (InvalidAmountException e) {
-            displayStatus(e.getMessage());
+        catch (InvalidAmountException | NoAccountNameFoundException | NullPointerException exception) {
+            displayStatus(exception.getMessage());
             mainDeposit();
         }
         int balance = lakesBank.findAccountName(accountName).getBalance(accountPin);
-        displayStatus(String.format("You have Successfully deposited %d to %s your new account balance is %d", amount, accountNumber, balance));
-
+        displayStatus(String.format("You have Successfully deposited %d your new account balance is %d", amount, balance));
         backMenu();
     }
 
@@ -106,23 +132,27 @@ public class Main {
         System.out.println(message);
     }
     private static String input(String prompt) {
+        Scanner input = new Scanner(System.in);
         System.out.println(prompt);
-        return sc.nextLine();
+        return input.nextLine();
     }
 
     public static void backMenu(){
+        Scanner input = new Scanner(System.in);
         System.out.println( """
                 1.  Go back to the Previous Menu
                 2.  Exit the System
                 """);
-        String subs = sc.nextLine();
+        String subs = input.nextLine();
         switch (subs){
             case "1": openPage();
             case "2": exit(2);
+            default: bankTransfer();
         }
     }
     private static int inputInt(String prompt) {
+        Scanner input = new Scanner(System.in);
         System.out.println(prompt);
-        return sc.nextInt();
+        return input.nextInt();
     }
 }

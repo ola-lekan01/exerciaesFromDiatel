@@ -17,19 +17,17 @@ public class Bank {
     public Account findAccount(String accountNumber) {
         for (Account account : accounts) {
             boolean isValidAccountNumber = account.getAccountNumber().equals(accountNumber);
-            if (!isValidAccountNumber) throw new NoAccountNameFoundException("Account Number not found Please try again");
-            else return account;
+            if (isValidAccountNumber) return account;
         }
-        return null;
+        throw new NullPointerException("Account Number Not Found");
     }
 
     public Account findAccountName(String accountName) {
         for (Account account : accounts) {
             boolean isValidAccountName = account.getName().equals(accountName);
-            if (!isValidAccountName) throw new NoAccountNameFoundException("Account Name not found Please try again");
-            return account;
+            if (isValidAccountName) return account;
         }
-        return null;
+        throw new NullPointerException("Account Name Not Found");
     }
 
     public void deposit(int deposit, String accountNumber) {
