@@ -2,19 +2,17 @@ package Chapter6.Factors;
 
 public class PrimeNumbers {
     //Don't Do This
-    public static boolean calculateFactors(int number) {
+    public static boolean isPrime(int number) {
         int factors = 0;
-        boolean isPrime = true;
         for (int count = 1; count <= number; count++) {
             if(number % count == 0) {
                 factors++;
                 if(factors > 2) {
-                    isPrime = false;
-                    break;
+                    return false;
                 }
             }
         }
-        return isPrime;
+        return true;
     }
     //Do This
     public static boolean isPrimed(int number){
