@@ -1,6 +1,6 @@
-package PhoneBoook;
+package Chapter7.PhoneBoook;
 
-import static PhoneBoook.Application.contactBook;
+import static Chapter7.PhoneBoook.Application.contactBook;
 
 public class mainApplication {
     public static void main(String[] args) {

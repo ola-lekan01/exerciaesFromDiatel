@@ -4,23 +4,10 @@ import java.util.Scanner;
 
 public class Questionnaire {
     private static final Scanner input = new Scanner(System.in);
-    private static int aCount = 0;
-    private static int bCount = 0;
-
-    private static int aCount1 = 0;
-    private static int bCount1 = 0;
-
-    private static int aCount2 = 0;
-    private static int bCount2 = 0;
-
-    private static int aCount3 = 0;
-    private static int bCount3 = 0;
-
-    private static String p1;
-    private static String p2;
-    private static String p3;
-    private static String p4;
-
+    private static String a1, a2, a3, a4;
+    private static int aCount , aCount1 , aCount2  , aCount3 = 0;
+    private static int bCount , bCount1 , bCount2 , bCount3 = 0;
+    private static String p1 , p2 , p3 , p4;
     static String[][] answers = new String[6][8];
 
     public static String getAnswer(){
@@ -321,30 +308,49 @@ public class Questionnaire {
     }
         public static void personalityChecker() {
             if (aCount > bCount) {
-                p1 = " You are an Extroverted person,  ";
+                p1 = " An Extroverted personality,  ";
+                a1 = "E";
             } else {
-                p1 = "You are an Introverted person,  ";
+                p1 = "An Introverted personality,  ";
+                a1 = "I";
             }
 
             if (aCount1 > bCount1) {
                 p2 = "Sensing, ";
+                a2 = "S";
             } else {
                 p2 = "Intuitive, ";
+                a2 = "I";
             }
 
             if (aCount2 > bCount2) {
                 p3 = "Thinking, ";
+                a3 = "T";
+
             } else {
                 p3 = "Feeling, ";
+                a3 = "F";
             }
 
             if (aCount3 > bCount3) {
                 p4 = "and Judgemental";
+                a4 = "J";
             } else {
                 p4 = "and Perceiving";
+                a4 = "P";
             }
 
-            System.out.printf("Your Personality is: %s%s%s%s" , p1, p2, p3, p4);
+            resultsPage();
+        }
 
+        public static void resultsPage(){
+            System.out.printf("%60s%n" , "Result");
+            System.out.printf("=================================================================================================================================%n");
+            System.out.printf("%30s%5s %10s%5s %10s%5s %10s%5s%n" , "A" , "B", "A" , "B", "A" , "B", "A" , "B");
+            System.out.printf("%30s%5s %10s%5s %10s%5s %10s%5s%n" , aCount ,bCount , aCount1 ,bCount1 ,aCount2 ,bCount2 ,aCount3 , bCount3);
+            System.out.printf("=================================================================================================================================%n");
+            System.out.printf("Your Personality is %12s %14s %16s %13s%n" , a1 , a2 , a3 , a4);
+            System.out.printf("Translating to %30s %10s %10s %10s%n" , p1 ,p2,p3,p4);
+            System.out.printf("=================================================================================================================================%n%n");
         }
 }
