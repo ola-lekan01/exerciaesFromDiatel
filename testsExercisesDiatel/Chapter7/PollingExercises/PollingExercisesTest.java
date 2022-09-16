@@ -17,7 +17,8 @@ public class PollingExercisesTest {
     @Test
     public void testThatWeCanCalculateAverage(){
         int [] pollNumbers = {10,20,30,40,50};
-        assertEquals(30, poll.getAverage(pollNumbers));
+        poll.getAverage(pollNumbers);
+        assertEquals(30, poll.getAverageRatings());
     }
     @Test
     public void testThatWeCanGetHighestScore(){

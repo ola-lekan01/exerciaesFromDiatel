@@ -1,19 +1,29 @@
 package Chapter7.PolingExercises;
 
-import java.util.Scanner;
+import GeneralMethods.General;
 
 public class Poll {
     static Poll poll = new Poll();
-    private final String [] issues =
+    private final String [] topics =
             {"Financial Issues", "Psychological Issues", "Gender Inequality", "Hunger Issues", "BreakFast Issues"};
-    private final int [][] responses = new int[5][10];
-
-    public int getAverage(int [] pollNumbers) {
+    private int [][] responses = new int[5][10];
+    private double averageRatings;
+    public void getAverage(int... pollNumbers) {
         int total = 0;
-        for (int array : pollNumbers) {
-            total += array;
-        }
-        return total / pollNumbers.length;
+        for(int pollNumber : pollNumbers) total += pollNumber;
+        averageRatings = (double) total / pollNumbers.length;
+    }
+
+    public double getAverageRatings() {
+        return averageRatings;
+    }
+
+    public String[] getTopics() {
+        return topics;
+    }
+
+    public int[][] getResponses() {
+        return responses;
     }
 
     public int getHighestRatings(int[] pollNumbers) {
@@ -30,5 +40,19 @@ public class Poll {
             if(array < lowestNumber) lowestNumber = array;
         }
         return lowestNumber;
+    }
+
+    public void getReport(){
+        General.displayStatus(String.format("\t\t%20d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+
+        for (int row = 0; row < getResponses().length; row++) {
+            System.out.printf("\t%20s", getTopics()[row]);
+            for (int column = 0; column < getResponses()[row].length; column++) {
+                System.out.printf("\t%d", getResponses()[row][column]);
+            }
+
+            System.out.println();
+            System.out.println();
+        }
     }
 }
